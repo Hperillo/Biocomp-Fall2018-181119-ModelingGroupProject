@@ -1,30 +1,22 @@
-<<<<<<< HEAD
-#Lotka-Volterra Model
-=======
 ##Lotka-Volterra Model
-#Importing necessary packages
->>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986
+#Install packages
 import pandas
 import scipy
 import scipy.integrate as spint
 from plotnine import *
-<<<<<<< HEAD
-=======
 
-#Lotka-Volterra Model Function
->>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986
+#Creating model and parameters
 def lotkaSim(y,t0,b,H,a,P,e,s):
+# "unpack" lists containing state variables (y)
     H=y[0]
     P=y[1]
+#Calculate change in state variables with time, give parameter values and current value of state variables
     dHdt=((b*H)-(a*P*H))
     dPdt=((e*a*P*H)-(s*P))
+#Return list containing change in state variables with time
     return [dHdt,dPdt]
-<<<<<<< HEAD
-# Model Simulation- Ideal Parameters
-=======
 
-# Model Simulation-Ideal Parameters
->>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986
+#Define parameters, initial values for state variables, and time steps
 times=range(0,100)
 y0=[25,5]
 params=(0.5,25,0.02,5,0.1,0.2)
@@ -95,23 +87,3 @@ for f in factor:
         simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
         a=ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()
         print(a)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
