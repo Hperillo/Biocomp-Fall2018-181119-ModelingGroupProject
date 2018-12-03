@@ -156,4 +156,7 @@ ggplot(simDF,aes(x="Time",y="Hare"))+geom_line()+geom_line(simDF,aes(x="Time",y=
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986

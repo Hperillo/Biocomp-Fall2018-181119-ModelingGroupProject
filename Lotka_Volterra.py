@@ -1,15 +1,30 @@
+<<<<<<< HEAD
 #Lotka-Volterra Model
+=======
+##Lotka-Volterra Model
+#Importing necessary packages
+>>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986
 import pandas
 import scipy
 import scipy.integrate as spint
 from plotnine import *
+<<<<<<< HEAD
+=======
+
+#Lotka-Volterra Model Function
+>>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986
 def lotkaSim(y,t0,b,H,a,P,e,s):
     H=y[0]
     P=y[1]
     dHdt=((b*H)-(a*P*H))
     dPdt=((e*a*P*H)-(s*P))
     return [dHdt,dPdt]
+<<<<<<< HEAD
 # Model Simulation- Ideal Parameters
+=======
+
+# Model Simulation-Ideal Parameters
+>>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986
 times=range(0,100)
 y0=[25,5]
 params=(0.5,25,0.02,5,0.1,0.2)
