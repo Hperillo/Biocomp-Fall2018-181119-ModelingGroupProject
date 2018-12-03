@@ -17,50 +17,86 @@ sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
 simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
 ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()
 
-#Increase b parameter by x4
-params=(2,25,0.02,5,0.1,0.2)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
+#Changing b parameter simulation
+factor=[0.25,.333,.5,1,2,3,4]
+y=[]
+for f in factor:
+    b=.5
+    y=[b*f]
+    print "b=",y
+    for i in y:
+        times=range(0,100)
+        y0=[25,5]
+        params=(i,25,0.02,5,0.1,0.2)
+        sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
+        simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
+        a=ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()
+        print(a)
 
-#Decrease b parameter by x2
-params=(.25,25,0.02,5,0.1,0.2)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
+#Changing a parameter simulation 
+factor=[0.25,.333,.5,1,2,3,4]
+y=[]
+for f in factor:
+    a=.02
+    y=[a*f]
+    print "a=",y
+    for i in y:
+        times=range(0,100)
+        y0=[25,5]
+        params=(.5,25,i,5,0.1,0.2)
+        sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
+        simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
+        a=ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()
+        print(a)
+        
+#Changing e parameter simulation 
+factor=[0.25,.333,.5,1,2,3,4]
+y=[]
+for f in factor:
+    e=.1
+    y=[e*f]
+    print "e=",y
+    for i in y:
+        times=range(0,100)
+        y0=[25,5]
+        params=(.5,25,.02,5,i,0.2)
+        sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
+        simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
+        a=ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()
+        print(a)
 
-#Increase a parameter by x2
-params=(0.5,25,0.04,5,0.1,0.2)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
+#Changing s parameter simulation 
+factor=[0.25,.333,.5,1,2,3,4]
+y=[]
+for f in factor:
+    s=.2
+    y=[s*f]
+    print "e=",y
+    for i in y:
+        times=range(0,100)
+        y0=[25,5]
+        params=(.5,25,0.02,5,0.1,i)
+        sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
+        simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
+        a=ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()
+        print(a)
 
-#Decrease a parameter by x2 
-params=(0.5,25,0.01,5,0.1,0.2)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
 
-#Increase e parameter by x2
-params=(0.5,25,0.02,5,0.2,0.2)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
 
-#Decrease e parameter by x2
-params=(0.5,25,0.02,5,0.05,0.2)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
 
-#Increase s parameter by x2 
-params=(0.5,25,0.02,5,0.1,0.4)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
 
-#Decrease s parameter by x2
-params=(0.5,25,0.02,5,0.1,0.1)
-sim=spint.odeint(func=lotkaSim,y0=y0,t=times,args=params)
-simDF=pandas.DataFrame({"t":times,"Herbivore":sim[:,0],"Predator":sim[:,1]})
-ggplot(simDF,aes(x="t",y="Herbivore"))+geom_line()+geom_line(simDF,aes(x="t",y="Predator"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
