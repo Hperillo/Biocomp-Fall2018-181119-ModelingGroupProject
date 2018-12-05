@@ -1,3 +1,4 @@
+##Rosenmac Model Simulation
 #Install packages
 import pandas as pd
 import numpy as np
@@ -124,28 +125,31 @@ for f in factor:
         a=ggplot(simDF,aes(x="Time",y="Hare"))+geom_line()+geom_line(simDF,aes(x="Time",y="Lynx"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
         print (a)
 
-#Paradox of Enrichment a=0.0125
+#Paradox of Enrichment simulation with a=0.0125
 params=(0.8,0.07,0.2,5,400,0.0125)
 y0=[500,120]
 times=range(0,500)
 sim=spint.odeint(func=rosenmacSim,y0=y0,t=times,args=params)
 simDF=pd.DataFrame({"Time":times,"Hare":sim[:,0],"Lynx":sim[:,1]})
 ggplot(simDF,aes(x="Time",y="Hare"))+geom_line()+geom_line(simDF,aes(x="Time",y="Lynx"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
-#Paradox of Enrichment a=0.0009
+
+#Paradox of Enrichment simulation with a=0.0009
 params=(0.8,0.07,0.2,5,400,0.0009)
 y0=[500,120]
 times=range(0,500)
 sim=spint.odeint(func=rosenmacSim,y0=y0,t=times,args=params)
 simDF=pd.DataFrame({"Time":times,"Hare":sim[:,0],"Lynx":sim[:,1]})
 ggplot(simDF,aes(x="Time",y="Hare"))+geom_line()+geom_line(simDF,aes(x="Time",y="Lynx"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
-#Paradox of Enrichment a=0.0006
+
+#Paradox of Enrichment simulation with a=0.0006
 params=(0.8,0.07,0.2,5,400,0.0006)
 y0=[500,120]
 times=range(0,500)
 sim=spint.odeint(func=rosenmacSim,y0=y0,t=times,args=params)
 simDF=pd.DataFrame({"Time":times,"Hare":sim[:,0],"Lynx":sim[:,1]})
 ggplot(simDF,aes(x="Time",y="Hare"))+geom_line()+geom_line(simDF,aes(x="Time",y="Lynx"),color='red')+theme_classic()+xlab("Time")+ylab("Population")
-#Paradox of Enrichment a=0.0005
+
+#Paradox of Enrichment simulation with a=0.0005
 params=(0.8,0.07,0.2,5,400,0.0005
 y0=[500,120]
 times=range(0,500)
@@ -156,3 +160,7 @@ ggplot(simDF,aes(x="Time",y="Hare"))+geom_line()+geom_line(simDF,aes(x="Time",y=
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 58cd7a8bbef6edd3a0179aa5c067159f05d2f986
