@@ -1,0 +1,21 @@
+#### COMMENTS FROM HELEN, VY, AND HENRY for PATRICK, SAURY, ALEXIS ####
+
+Put all names on the document.
+
+Move conversion efficiency arrow to come out of predators, displaying the loss of energy.
+
+Add self-limiting prey arrow to Rosen-Mac model.
+
+Distinguish Rosen-Mac pararmeter paragraph by each value (i.e. make a new paragraph each time rather than have one massive parameter).
+
+Use Rosen-Mac formatting for model labelling in Lotka-Volterra model labelling (i.e. be consistent in captioning)
+
+Good format for paradox of enrichment section!
+
+Make conceptual model screenshots less fuzzy (if possible).
+
+Annotate script more.
+
+Add variable changes (if possible).
+
+Well labelled.
